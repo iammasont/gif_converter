@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GIF_CONVERTER</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+
+     <!-- Custom Titlebar -->
+  <div class="titlebar">
+    <div class="titlebar-drag">GIF_CONVERTER</div>
+    <div class="titlebar-controls">
+      <button id="minimize-btn" class="titlebar-btn">[_]</button>
+      <button id="close-btn" class="titlebar-btn titlebar-btn-close">[X]</button>
+    </div>
+  </div>
+
+    <!-- Header -->
+    <header>
+      <h1 class="title">GIF_CONVERTER</h1>
+    <div class="status-container">
+        <div class="status-text">
+          <span class="bracket-left">[</span>
+          <span id="status" class="status">READY</span>
+          <span class="bracket-right">]</span>
+        </div>
+        <div class="progress-bar">
+          <div id="progress-fill" class="progress-fill"></div>
+        </div>
+      </div>
+    </header>
+
+    <div class="divider"></div>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Source Files -->
+      <section>
+        <div class="section-header">
+          <span class="label">SOURCE_FILES</span>
+          <div class="header-buttons">
+            <button id="select-btn" class="btn-text btn-secondary">[SELECT]</button>
+            <button id="clear-btn" class="btn-text btn-danger">[CLEAR]</button>
+          </div>
+        </div>
+        <div id="drop-zone" class="file-list">
+          <div id="file-items"></div>
+          <div class="empty-state">• DROP FILES/FOLDERS HERE OR USE BUTTONS BELOW</div>
+        </div>
+      </section>
+
+      <!-- Add Buttons -->
+      <div class="button-row">
+        <button id="add-files-btn" class="btn btn-primary">[ADD_FILES]</button>
+        <button id="add-folder-btn" class="btn btn-primary">[ADD_FOLDER]</button>
+      </div>
+
+      <!-- Batch Actions (hidden by default) -->
+      <button id="remove-btn" class="btn btn-danger-outline" style="display: none;">[REMOVE_SELECTED]</button>
+      <button id="batch-path-btn" class="btn btn-secondary-outline" style="display: none;">[SET_PATH_FOR_SELECTED]</button>
+
+      <!-- Output Folder -->
+      <section>
+        <span class="label">OUTPUT_FOLDER</span>
+        <div class="output-row">
+          <div id="output-display" class="output-display">[DEFAULT: SAME AS SOURCE]</div>
+          <button id="set-output-btn" class="btn btn-primary btn-small">[SET]</button>
+        </div>
+      </section>
+
+      <!-- Settings -->
+      <section>
+        <span class="label">CONVERSION_SETTINGS</span>
+        <div class="settings">
+          <div class="setting-row">
+            <label>FPS</label>
+            <input type="text" id="fps" value="25">
+          </div>
+          <div class="setting-row">
+            <label>WIDTH</label>
+            <input type="text" id="width" value="640">
+          </div>
+          <div class="setting-row">
+            <label>QUALITY</label>
+            <input type="text" id="quality" value="90">
+          </div>
+        </div>
+      </section>
+
+      <div class="divider"></div>
+
+      <!-- Action Buttons -->
+      <div class="button-row">
+        <button id="convert-btn" class="btn btn-primary">[CONVERT_TO_GIFS]</button>
+        <button id="cancel-btn" class="btn btn-danger" disabled>[CANCEL]</button>
+      </div>
+
+      <!-- Progress Info -->
+      <div id="progress-label" class="progress-label"></div>
+      <div id="time-label" class="time-label"></div>
+    </main>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>

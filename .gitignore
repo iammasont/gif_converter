@@ -1,0 +1,11 @@
+# Create .gitignore before the first commit
+cat > .gitignore << 'EOF'
+node_modules/
+dist/
+*.log
+.DS_Store
+bin/
+fonts/
+EOF
+
+# Then do your git add and commit
