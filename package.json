@@ -17,7 +17,7 @@
   },
   "build": {
     "appId": "com.gifconverter.app",
-    "productName": "GIF_CONVERTER",
+    "productName": "GifConverter",
     "files": [
       "**/*",
       "!bin/**/*"
@@ -74,7 +74,7 @@
       "allowToChangeInstallationDirectory": false,
       "createDesktopShortcut": "always",
       "createStartMenuShortcut": true,
-      "shortcutName": "GIF Converter"
+      "shortcutName": "GifConverter"
     }
   }
 }
