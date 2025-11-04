@@ -1,6 +1,8 @@
 {
   "name": "gif-converter",
   "version": "1.0.0",
+  "description": "A simple app to convert videos to GIFs.",
+  "author": "Mason Thompson",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
@@ -18,14 +20,24 @@
     "productName": "GIF_CONVERTER",
     "files": [
       "**/*",
-      "bin/**/*",
-      "fonts/**/*"
+      "!bin/**/*"
     ],
     "extraResources": [
       {
         "from": "bin/",
         "to": "bin/",
-        "filter": ["**/*"]
+        "filter": [
+          "mac-${arch}/**/*",
+          "win-x64/**/*"
+        ]
+      },
+      {
+        "from": "fonts/",
+        "to": "fonts/"
+      },
+      {
+        "from": "favicon.ico",
+        "to": "favicon.ico"
       }
     ],
     "win": {
@@ -34,12 +46,7 @@
       "sign": null
     },
     "mac": {
-      "target": [
-        {
-          "target": "dmg",
-          "arch": ["x64", "arm64"]
-        }
-      ],
+      "target": "dmg",
       "category": "public.app-category.utilities",
       "icon": "gif.icns",
       "hardenedRuntime": false,
@@ -65,8 +72,9 @@
       "oneClick": true,
       "perMachine": true,
       "allowToChangeInstallationDirectory": false,
-      "createDesktopShortcut": true,
-      "createStartMenuShortcut": true
+      "createDesktopShortcut": "always",
+      "createStartMenuShortcut": true,
+      "shortcutName": "GIF Converter"
     }
   }
 }

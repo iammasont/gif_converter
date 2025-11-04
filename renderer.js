@@ -577,9 +577,15 @@ async function convertFiles() {
     }
   } catch (err) {
     console.error('Conversion error:', err);
-    setProgressLabel('• CONVERSION FAILED', 'error');
+    const errorMsg = err.message || 'Unknown error occurred';
+    setProgressLabel(`• CONVERSION FAILED: ${errorMsg}`, 'error');
     updateStatus('READY');
     updateProgressBar(0, false);
+    
+    // Show alert for critical errors
+    setTimeout(() => {
+      alert(`Conversion failed:\n\n${errorMsg}\n\nCheck the console for details.`);
+    }, 100);
   }
   
   convertBtn.disabled = false;
